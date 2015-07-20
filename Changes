@@ -1,0 +1,24 @@
+MSAR - Multiple or Mapping Search and Replace
+Author:  Michael J. Vincent
+
+Version 1.5 - 20 JUL 2015
+
+Perl::Tidy for GitHub upload.
+
+
+Version 1.48 - 17 MAY 2011
+
+Added -s separator option.  Added TEMPLATE file EXAMPLE in POD.
+
+
+Version 1.43+ - 
+
+Current version.
+
+
+Version 1.x - 
+
+Original versions didn't use Perl script template, had bad coding, 
+didn't use POD, didn't use Getopt, only did basic mapping search 
+and replace on tab delimited files.
+
