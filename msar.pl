@@ -88,7 +88,7 @@ if ( $ARGV[0] ) {
 }
 
 # There must be argv1 = mapfile or lonesome -
-if ( defined( $opt{mapfile} ) ) {
+if ( defined $opt{mapfile} ) {
     $mapfile = 'STDIN';
 
     # If another ARGV, it must be outfile, (since skipping mapfile) so add it
@@ -108,7 +108,7 @@ if ( defined( $opt{mapfile} ) ) {
 if ( $ARGV[2] ) { $outfile = $ARGV[2] }
 
 # Specified columns?
-if ( defined( $opt{cols} ) ) {
+if ( defined $opt{cols} ) {
     $opt{cols} = &GET_RANGE_ARGS( $opt{cols} );
 }
 
@@ -116,7 +116,7 @@ if ( defined( $opt{cols} ) ) {
 # replace and the column numbers as the values (just cause).  Later, we can
 # just search for a "key" in the hash that corresponds to the column number
 # and replace.  Easier than searching through an array to see if a value exists.
-if ( defined( $opt{cols} ) ) {
+if ( defined $opt{cols} ) {
 
     # Convert array to a hash, decrementing as the user will enter '1'
     # for column 1, but PERL starts arrays at 0.
@@ -196,7 +196,7 @@ if ( open( my $INFILE, '<', "$infile" ) ) {
 
                 # If $_, the current column on the current line exists in the SAR
                 # hash, the it is scheduled for replacement.  If not, just print it.
-                if ( defined( $SAR{$_} ) ) {
+                if ( defined $SAR{$_} ) {
                     if ( $_ eq $SAR{$_} ) {
 
                         # So we're going to replace it, verify there is a mapping for it.
@@ -207,7 +207,7 @@ if ( open( my $INFILE, '<', "$infile" ) ) {
 
                         # $output may not be defined if there is no mapping in the map file
                         # as assigned in the above line.
-                        if ( defined($output) ) {
+                        if ( defined $output ) {
                             print $OUT "$output";
                             $YESMapping++;
                         } else {
@@ -243,12 +243,12 @@ if ( open( my $INFILE, '<', "$infile" ) ) {
                 # Whole word searches means the search string needs to have the
                 # \b delimiters on both sides.
                 my $search
-                  = ( defined( $opt{words} ) )
+                  = ( defined $opt{words} )
                   ? ( '\b' . $replace . '\b' )
                   : $replace;
 
                 # ignore case?
-                if ( defined( $opt{ignore} ) ) {
+                if ( defined $opt{ignore} ) {
                     $YESMapping += ( $_ =~ s/$search/$map{$replace}/gi );
                 } else {
                     $YESMapping += ( $_ =~ s/$search/$map{$replace}/g );
@@ -269,7 +269,7 @@ if ($outfile) {
     close $OUTFILE;
 }
 
-if ( defined( $opt{beep} ) ) {
+if ( defined $opt{beep} ) {
     print "\a";
 }
 
@@ -355,7 +355,7 @@ sub ReadMapFile {
         chomp $_;
         my @array = split( /$opt{separator}/, $_ );
 
-        if ( !defined( $array[1] ) ) {
+        if ( !defined $array[1] ) {
 #            if ($opt{cols}) {
             $array[1] = ""
 #            } else {
