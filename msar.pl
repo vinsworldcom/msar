@@ -365,7 +365,7 @@ sub ReadMapFile {
 #            }
         }
 
-        # Shorter code thanks to GRAFF:  http://www.perlmonks.org/?node_id=44715
+        # Shorter code thanks to GRAFF:  http://www.perlmonks.org/?node_id=751368
         # Determine non/reverse:
         my ( $pos1, $pos2 ) = ( $opt{reverse} ) ? ( 1, 0 ) : ( 0, 1 );
 
